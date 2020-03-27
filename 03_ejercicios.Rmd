@@ -1,0 +1,82 @@
+---
+title: "R Mapas"
+output: html_notebook
+---
+
+
+# Cargamos el shapes y los datos 
+
+
+```{r}
+
+datos_enigh <- read_csv("data/data_edos.csv")
+datos_enigh
+```
+
+```{r}
+shp_estados <- st_read("shapes/areas_geoestadisticas_estatales.shp", stringsAsFactors = F)
+shp_estados
+
+```
+
+# Unimos (Join) datos y shapes
+
+```{r}
+# Unimos datos con el shape
+join_shape_data <- left_join(shp_estados, datos_enigh, by = c("CVE_ENT" = "estado")) 
+
+# Mostramos el mapa
+
+join_shape_data %>% plot() 
+```
+
+
+Ahora es turno de experimentar!! te invito que cambies y le des tu propio estilo!
+
+
+
+# Tu turno 1
+
+Crea un mapa donde el color este determinado por la columna "edad_jefe_promedio"
+
+```{r}
+
+tm_shape(join_shape_data)  +
+  tm_polygons(col = "edad_jefe_promedio")
+```
+
+# Tu turno 2
+
+Puedes determinar que estados son los que más gastan en café?
+Puedes crear un mapa que lo demuestre?
+
+```{r}
+
+```
+
+# Tu turno 3
+
+Puede crear un mapa que solo muestre los 6 estados con mayor número de integrantes promedio?
+
+```{r}
+
+```
+
+# Tu turno 4
+
+Crea un mapa con el menor gasto en carne.
+
+```{r}
+
+```
+
+
+# Tu turno 5
+
+Creemos una nueva columna llamada "gasto_total_promedio" donde se encuentren la suma de de todos los gastos, 
+después hagamos un mapa con esta nueva información
+
+```{r}
+
+```
+
