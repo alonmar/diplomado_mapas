@@ -4,6 +4,12 @@ output: html_notebook
 ---
 
 
+```{r}
+library(sf)  #libreria para cargar shapes
+library(tmap) #libreria para crear mapas
+library(tidyverse) #manipulacion de datos
+```
+
 # Cargamos el shapes y los datos 
 
 
